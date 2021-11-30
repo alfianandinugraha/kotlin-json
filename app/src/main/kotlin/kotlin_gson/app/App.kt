@@ -11,39 +11,46 @@ data class User (
 )
 
 fun main() {
+
+    println("JSON Object")
+
     val user = User(
         name = "Alfian",
         age = 20
     )
-    val userJson = Gson().toJson(user)
-
     println("user :")
     println(user)
 
-    println("===============")
+    println("")
 
     println("userJson :")
+    val userJson = Gson().toJson(user)
     println(userJson)
     println("Is userJson string ? ${userJson is String}")
 
-    println("===============")
+    println("")
 
     val convertedUserJson = Gson().fromJson<User>(userJson, User::class.java)
     println("convertedUserJson :")
     println(convertedUserJson)
 
+    println("")
+
     println("===============")
+    println("JSON Array")
 
     val listUser = listOf(User("Andra", 20), User("Irvan", 19))
-    println("users :")
+    println("listUser :")
     println(listUser)
 
-    println("===============")
+    println("")
+
     val listUserJson = Gson().toJson(listUser)
-    println("usersJson :")
+    println("listUserJson :")
     println(listUserJson)
 
-    println("===============")
+    println("")
+
     val convertedListUserJson = Gson().fromJson(listUserJson, Array<User>::class.java).toList()
     println("convertedListUserJson :")
     println(convertedListUserJson)
