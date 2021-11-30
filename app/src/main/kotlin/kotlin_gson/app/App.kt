@@ -10,6 +10,13 @@ data class User (
     val age: Int = 0
 )
 
+data class Todo (
+    val userId: Int,
+    val id: Int,
+    val title: String,
+    val completed: Boolean
+)
+
 fun main() {
 
     println("JSON Object")
@@ -54,4 +61,21 @@ fun main() {
     val convertedListUserJson = Gson().fromJson(listUserJson, Array<User>::class.java).toList()
     println("convertedListUserJson :")
     println(convertedListUserJson)
+
+    println("")
+
+    println("===============")
+    println("JSON Object 2")
+
+    val plainTodoJson = """
+        {
+          "userId": 1,
+          "id": 1,
+          "title": "delectus aut autem",
+          "completed": false
+        }
+    """.trimIndent()
+    val todo = Gson().fromJson(plainTodoJson, Todo::class.java)
+    println("todo :")
+    println(todo)
 }
