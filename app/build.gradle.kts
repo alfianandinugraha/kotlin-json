@@ -8,6 +8,7 @@ plugins {
 
 dependencies {
     implementation("org.apache.commons:commons-text")
+    implementation("com.google.code.gson:gson:2.8.9")
     implementation(project(":utilities"))
 }
 
