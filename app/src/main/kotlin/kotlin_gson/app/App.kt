@@ -4,6 +4,7 @@
 package kotlin_gson.app
 
 import com.google.gson.Gson
+import java.io.File
 
 data class User (
     val name: String = "",
@@ -78,4 +79,12 @@ fun main() {
     val todo = Gson().fromJson(plainTodoJson, Todo::class.java)
     println("todo :")
     println(todo)
+
+    println("")
+
+    val file = File("todos.json")
+    val fileContent = file.readText()
+    val listTodo = Gson().fromJson(fileContent, Array<Todo>::class.java).toList()
+    println("listTodo ")
+    println(listTodo)
 }
